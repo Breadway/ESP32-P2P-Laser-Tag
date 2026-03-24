@@ -67,3 +67,15 @@ Scope: Findings based only on the attached serial smoke-test log.
   - non-zero RX/TX counters on both nodes
   - consistent peer visibility (`peers=1`) on both nodes
 
+## Conceptual Verification Pass (Local, no hardware attached)
+
+- `src/main.cpp` was manually reviewed for end-to-end control flow:
+  - `setup()` initializes hardware, networking, keypair generation, and sets `setupComplete`.
+  - `loop()` processes debug serial, buttons, timers, state machine progression, IR handling, sync, and display updates.
+  - The command paths exercised by `scripts/serial_smoke_test.py` (`0/z/i/a|b/r/f/s/k/w/d`) are implemented in `handleDebugSerial()`.
+  - State transitions and guards are present for lobby start gating (`maybeStartFromReady()`), in-game hit processing (`processIRHit()`), and round completion (`checkWinCondition()`).
+- Local runnable checks in this environment (without serial devices) were executed successfully:
+  - `python3 scripts/serial_smoke_test.py --help`
+  - `python3 -m py_compile scripts/serial_smoke_test.py scripts/flash_and_monitor.py`
+- Hardware-in-the-loop smoke testing still requires two connected ESP32 serial ports and is unchanged:
+  - `python3 scripts/serial_smoke_test.py --port1 <PORT_A> --port2 <PORT_B>`
