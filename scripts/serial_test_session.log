@@ -1,0 +1,86 @@
+=== serial integration test session ===
+
+=== Boot capture /dev/ttyUSB1 ===
+(no output)
+
+=== Boot capture /dev/ttyUSB6 ===
+(no output)
+
+--- /dev/ttyUSB1 <= '0' ---
+[DBG] quiet mode enabled
+
+--- /dev/ttyUSB1 <= 'z' ---
+[DBG] counters cleared
+
+--- /dev/ttyUSB1 <= 'i' ---
+[SNAP] manual t=236925 st=IN_GAME team=1 id=0 peers=1 ready=2/2 wifi=6 mode=1 ch=1 sec=0 chRes=0 rx=1 txA=0 txE=0 txOk=0 txFail=0 heap=241812
+[NET] peers=1
+[NET] peer[0]=F4:65:0B:D8:57:DC
+[PKT] RX pub=2 team=0 ready=0 hit=0 conf=0 sreq=0 sresp=0 rset=0
+[PKT] TX pub=0 team=0 ready=0 hit=0 conf=0 sreq=0 sresp=0 rset=0
+
+--- /dev/ttyUSB6 <= '0' ---
+(no output)
+
+--- /dev/ttyUSB6 <= 'z' ---
+(no output)
+
+--- /dev/ttyUSB6 <= 'i' ---
+(no output)
+
+--- /dev/ttyUSB1 <= 'a' ---
+[DBG] team=RED
+
+--- /dev/ttyUSB6 <= 'b' ---
+(no output)
+
+--- /dev/ttyUSB1 <= 'r' ---
+[DBG] force sendReadyVote
+
+--- /dev/ttyUSB6 <= 'r' ---
+(no output)
+
+=== Waiting 2.0s for STARTING/IN_GAME transitions ===
+
+=== Post-start capture /dev/ttyUSB1 ===
+(no output)
+
+=== Post-start capture /dev/ttyUSB6 ===
+(no output)
+
+--- /dev/ttyUSB1 <= 'f' ---
+[DBG] fireGun()
+
+--- /dev/ttyUSB6 <= 'f' ---
+(no output)
+
+--- /dev/ttyUSB1 <= 's' ---
+[DBG] force sendSyncRequest
+
+--- /dev/ttyUSB6 <= 's' ---
+(no output)
+
+--- /dev/ttyUSB1 <= 'k' ---
+[PKT] RX pub=14 team=2 ready=1 hit=0 conf=0 sreq=2 sresp=0 rset=0
+[PKT] TX pub=0 team=1 ready=1 hit=0 conf=0 sreq=2 sresp=0 rset=0
+
+--- /dev/ttyUSB1 <= 'w' ---
+[NET] manual mode=1 wifi=6 ch=1 sec=0 chRes=0 bcastPeer=1
+[NET] peers=1
+[NET] peer[0]=F4:65:0B:D8:57:DC
+
+--- /dev/ttyUSB1 <= 'i' ---
+[SNAP] manual t=253605 st=IN_GAME team=1 id=0 peers=1 ready=2/2 wifi=6 mode=1 ch=1 sec=0 chRes=0 rx=19 txA=4 txE=0 txOk=4 txFail=0 heap=241812
+[NET] peers=1
+[NET] peer[0]=F4:65:0B:D8:57:DC
+[PKT] RX pub=14 team=2 ready=1 hit=0 conf=0 sreq=2 sresp=0 rset=0
+[PKT] TX pub=0 team=1 ready=1 hit=0 conf=0 sreq=2 sresp=0 rset=0
+
+--- /dev/ttyUSB6 <= 'k' ---
+(no output)
+
+--- /dev/ttyUSB6 <= 'w' ---
+(no output)
+
+--- /dev/ttyUSB6 <= 'i' ---
+(no output)
